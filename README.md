@@ -47,7 +47,8 @@ Applications > Network > Web Browsing > Google Chrome
 Reusing the Maven local repository
 you can just use your home .m2 cache directory 
 
-``` docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn clean install  
+```
+ docker run -it --rm -v "$PWD":/usr/src/mymaven -v "$HOME/.m2":/root/.m2 -v "$PWD/target:/usr/src/mymaven/target" -w /usr/src/mymaven maven mvn clean install  
 ```
 
 ## Additional settings
