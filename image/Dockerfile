@@ -1,6 +1,7 @@
-FROM ubuntu:16.04
+FROM  maven:3.9.6-ibm-semeru-17-focal
 
 RUN apt-get update && apt-get clean && apt-get install -y \
+    gnupg2 \
     x11vnc \
     xvfb \
     fluxbox \
@@ -15,5 +16,8 @@ RUN useradd apps \
     && chown -v -R apps:apps /home/apps
 
 COPY bootstrap.sh /
+
+RUN sed -i -e 's/\r$//' bootstrap.sh \
+	&& chmod +x bootstrap.sh
 
 CMD '/bootstrap.sh'
